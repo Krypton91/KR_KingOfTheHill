@@ -143,7 +143,13 @@ class KR_KingOfTheHillConfig
 
     void HandleNamalsk()
     {
-
+        m_HillLocations.Insert(new autoptr KR_KingOfTheHillLocation("BK-L02", 60, 30, true, Vector( 3424.52, 215.97, 6720.05), 10, 1));
+        m_HillLocations.Insert(new autoptr KR_KingOfTheHillLocation("BK-L01", 60, 30, true, Vector(4161.91, 390.11, 6583.47), 10, 1));
+        m_HillLocations.Insert(new autoptr KR_KingOfTheHillLocation("Athena Research Institute", 60, 30, true, Vector( 4402.77, 78.85, 8062.98), 10, 1));
+        m_HillLocations.Insert(new autoptr KR_KingOfTheHillLocation("BK-T08", 60, 30, true, Vector(3939.92, 5.81, 10001.34), 10, 1));
+        m_HillLocations.Insert(new autoptr KR_KingOfTheHillLocation("Sebjan Dam", 60, 30, true, Vector(5710.48, 21.83, 9847.15), 10, 1));
+        m_HillLocations.Insert(new autoptr KR_KingOfTheHillLocation("Athena 2", 60, 30, true, Vector(4946.93, 45.86, 6670.35), 10, 1));
+        m_HillLocations.Insert(new autoptr KR_KingOfTheHillLocation("Tara", 60, 30, true, Vector(7237.50, 238.59, 7056.87), 10, 1));
     }
 
     void HandleStandartLocations(string MapName)
