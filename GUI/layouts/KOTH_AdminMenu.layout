@@ -1,0 +1,564 @@
+FrameWidgetClass rootFrame {
+ size 0.77407 0.84702
+ halign center_ref
+ valign center_ref
+ hexactpos 0
+ vexactpos 0
+ hexactsize 0
+ vexactsize 0
+ {
+  PanelWidgetClass MainPanel {
+   ignorepointer 1
+   position -0.0003 0
+   size 1 1
+   halign center_ref
+   valign center_ref
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   style rover_sim_black
+   {
+    PanelWidgetClass Header {
+     ignorepointer 1
+     color 0.1922 0.1922 0.1922 1
+     position 0 0
+     size 1 0.07176
+     halign center_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     style rover_sim_colorable
+     {
+      TextWidgetClass Headline {
+       ignorepointer 1
+       position -0.221 0
+       size 0.75845 0.9975
+       halign center_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       style Bold
+       text "KOTH Admin Section"
+       font "gui/fonts/sdf_metronlight24"
+       "italic text" 0
+       "bold text" 1
+       "exact text" 0
+       "size to text h" 1
+       "size to text v" 0
+       "text halign" center
+       "text valign" center
+      }
+      ImageWidgetClass KModLogo {
+       ignorepointer 1
+       position 0 0
+       size 0.04502 0.97987
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       imageTexture "{A19ACF264A6A38B1}KR_KingOfTheHill/GUI/images/ModIcon.edds"
+       mode blend
+       "src alpha" 1
+       stretch 1
+      }
+      ButtonWidgetClass CloseBtn {
+       color 0.7451 0 0 1
+       size 0.048 1
+       halign right_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       style Colorable
+       text "X"
+       font "gui/fonts/metron-bold"
+      }
+     }
+    }
+    PanelWidgetClass Sidebar {
+     ignorepointer 1
+     color 0.1922 0.1922 0.1922 1
+     size 0.2246 0.4265
+     valign center_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     style rover_sim_colorable
+     {
+      ButtonWidgetClass BtnEventManager {
+       color 0.5608 0.0706 0.0706 1
+       position -0.00219 0.1691
+       size 0.93442 0.15277
+       halign center_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       style Colorable
+       text "Events"
+       font "gui/fonts/metron-bold22"
+      }
+      ButtonWidgetClass BtnConfigManager {
+       color 0.5608 0.0706 0.0706 1
+       position -0.00219 0.34572
+       size 0.93442 0.15012
+       halign center_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       style Colorable
+       text "Zones"
+       font "gui/fonts/metron-bold22"
+      }
+      ImageWidgetClass CloseSidebar {
+       ignorepointer 1
+       position 0 0
+       size 0.11497 0.1147
+       halign right_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       imageTexture "{12B1DFB2E6E24144}KR_KingOfTheHill/GUI/images/CloseSidebarIcon.edds"
+       mode blend
+       "src alpha" 1
+       stretch 1
+      }
+      ButtonWidgetClass BtnConfigManager0 {
+       color 0.5608 0.0706 0.0706 1
+       position -0.0022 0.5223
+       size 0.93442 0.15012
+       halign center_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       style Colorable
+       text "Rewards"
+       font "gui/fonts/metron-bold22"
+      }
+      ButtonWidgetClass BtnConfigManager1 {
+       color 0.5608 0.0706 0.0706 1
+       position -0.0022 0.6989
+       size 0.93442 0.15012
+       halign center_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       style Colorable
+       text "Miscs"
+       font "gui/fonts/metron-bold22"
+      }
+     }
+    }
+    PanelWidgetClass ContentPanel {
+     ignorepointer 1
+     color 0.1922 0.1922 0.1922 1
+     position 0.24071 0.08489
+     size 0.74355 0.89276
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     style rover_sim_colorable
+     {
+      PanelWidgetClass EventsTab {
+       ignorepointer 1
+       color 0.1922 0.1922 0.1922 1
+       size 1 1
+       halign center_ref
+       valign center_ref
+       hexactpos 0
+       vexactpos 0
+       hexactsize 0
+       vexactsize 0
+       style rover_sim_colorable
+       {
+        MapWidgetClass Map {
+         position 0 -0.00103
+         size 1 0.99793
+         halign center_ref
+         valign center_ref
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         {
+          CheckBoxWidgetClass CheckBoxWidget0 {
+           inheritalpha 0
+           color 0.5882 0 0 1
+           position 0.14752 0.69612
+           size 0.43679 0.0533
+           hexactpos 0
+           vexactpos 0
+           hexactsize 0
+           vexactsize 0
+           style Default
+           text "Reset Time when zone is empty"
+           font "gui/fonts/metron-bold22"
+           checked 1
+          }
+         }
+        }
+        PanelWidgetClass PanelHandleEvent {
+         ignorepointer 1
+         position 0.0005 0
+         size 0.7221 0.5274
+         halign center_ref
+         valign center_ref
+         hexactpos 0
+         vexactpos 0
+         hexactsize 0
+         vexactsize 0
+         style rover_sim_black
+         {
+          ButtonWidgetClass CancelHandleEBtn {
+           color 0.7451 0 0 1
+           position 0 0
+           size 0.048 0.08445
+           halign right_ref
+           hexactpos 0
+           vexactpos 0
+           hexactsize 0
+           vexactsize 0
+           style Colorable
+           text "X"
+           font "gui/fonts/metron-bold"
+          }
+          PanelWidgetClass PanelPosSettings {
+           ignorepointer 1
+           color 0.502 0 0 1
+           position 0.01115 0.03292
+           size 0.28584 0.64037
+           valign center_ref
+           hexactpos 0
+           vexactpos 0
+           hexactsize 0
+           vexactsize 0
+           style Outline
+           {
+            EditBoxWidgetClass XPosBox {
+             color 0.502 0.3765 0 1
+             position 0.1866 0.23663
+             size 0.7749 0.1251
+             hexactpos 0
+             vexactpos 0
+             hexactsize 0
+             vexactsize 0
+             style DefaultBorder
+            }
+            TextWidgetClass XLabel {
+             ignorepointer 1
+             position -0.40722 0.23544
+             size 0.12953 0.12526
+             halign center_ref
+             hexactpos 0
+             vexactpos 0
+             hexactsize 0
+             vexactsize 0
+             text "X"
+             font "gui/fonts/metron-italic16"
+             "size to text h" 0
+             "size to text v" 0
+             "text halign" center
+             "text valign" center
+            }
+            EditBoxWidgetClass YPosBox {
+             color 0.502 0.3765 0 1
+             position 0.1866 0.37667
+             size 0.7749 0.1251
+             hexactpos 0
+             vexactpos 0
+             hexactsize 0
+             vexactsize 0
+             style DefaultBorder
+            }
+            TextWidgetClass YLabel {
+             ignorepointer 1
+             position -0.4072 0.37667
+             size 0.12953 0.12526
+             halign center_ref
+             hexactpos 0
+             vexactpos 0
+             hexactsize 0
+             vexactsize 0
+             text "Y"
+             font "gui/fonts/metron-italic16"
+             "size to text h" 0
+             "size to text v" 0
+             "text halign" center
+             "text valign" center
+            }
+            EditBoxWidgetClass ZPosBox {
+             color 0.502 0.3765 0 1
+             position 0.1866 0.51667
+             size 0.7749 0.1251
+             hexactpos 0
+             vexactpos 0
+             hexactsize 0
+             vexactsize 0
+             style DefaultBorder
+            }
+            TextWidgetClass ZLabel {
+             ignorepointer 1
+             position -0.4072 0.51667
+             size 0.12953 0.12526
+             halign center_ref
+             hexactpos 0
+             vexactpos 0
+             hexactsize 0
+             vexactsize 0
+             text "Z"
+             font "gui/fonts/metron-italic16"
+             "size to text h" 0
+             "size to text v" 0
+             "text halign" center
+             "text valign" center
+            }
+            TextWidgetClass CaptureRadLbl {
+             ignorepointer 1
+             position -0.25379 0.68082
+             size 0.40487 0.08878
+             halign center_ref
+             hexactpos 0
+             vexactpos 0
+             hexactsize 0
+             vexactsize 0
+             text "CP Rad"
+             font "gui/fonts/metron-italic16"
+             "size to text h" 0
+             "size to text v" 0
+             "text halign" center
+             "text valign" center
+            }
+            EditBoxWidgetClass ZPosBox0 {
+             color 0.502 0.3765 0 1
+             position 0.059 0.80097
+             size 0.37631 0.12054
+             hexactpos 0
+             vexactpos 0
+             hexactsize 0
+             vexactsize 0
+             style DefaultBorder
+            }
+            TextWidgetClass CaptureRadLbl0 {
+             ignorepointer 1
+             position 0.21671 0.67918
+             size 0.48784 0.08942
+             halign center_ref
+             hexactpos 0
+             vexactpos 0
+             hexactsize 0
+             vexactsize 0
+             text "Event Rad"
+             font "gui/fonts/metron-italic16"
+             "size to text h" 0
+             "size to text v" 0
+             "text halign" center
+             "text valign" center
+            }
+            EditBoxWidgetClass ZPosBox1 {
+             color 0.502 0.3765 0 1
+             position 0.549 0.80097
+             size 0.37631 0.12054
+             hexactpos 0
+             vexactpos 0
+             hexactsize 0
+             vexactsize 0
+             style DefaultBorder
+            }
+            TextWidgetClass BarHeadLine {
+             ignorepointer 1
+             position 0 0.05
+             size 1 0.1293
+             halign center_ref
+             hexactpos 0
+             vexactpos 0
+             hexactsize 0
+             vexactsize 0
+             text "Position"
+             font "gui/fonts/metron-bolditalic22"
+             "size to text h" 0
+             "size to text v" 0
+             "text halign" center
+             "text valign" center
+            }
+           }
+          }
+          TextWidgetClass BarHeadLine0 {
+           ignorepointer 1
+           size 1 0.1293
+           halign center_ref
+           hexactpos 0
+           vexactpos 0
+           hexactsize 0
+           vexactsize 0
+           text "Manage Event"
+           font "gui/fonts/metron-bolditalic22"
+           "size to text h" 0
+           "size to text v" 0
+           "text halign" center
+           "text valign" center
+          }
+          PanelWidgetClass PanelInfos {
+           ignorepointer 1
+           color 0.502 0 0 1
+           position 0.3911 0.0329
+           size 0.58674 0.64037
+           valign center_ref
+           hexactpos 0
+           vexactpos 0
+           hexactsize 0
+           vexactsize 0
+           style Outline
+           {
+            EditBoxWidgetClass AiAmountBox {
+             color 0.502 0.3765 0 1
+             position 0.33453 0.23223
+             size 0.62697 0.1295
+             hexactpos 0
+             vexactpos 0
+             hexactsize 0
+             vexactsize 0
+             style DefaultBorder
+            }
+            TextWidgetClass AiAmountLbl {
+             ignorepointer 1
+             position -0.32956 0.23544
+             size 0.28486 0.12526
+             halign center_ref
+             hexactpos 0
+             vexactpos 0
+             hexactsize 0
+             vexactsize 0
+             text "AI Amount"
+             font "gui/fonts/metron-italic16"
+             "size to text h" 0
+             "size to text v" 0
+             "text halign" center
+             "text valign" center
+            }
+            TextWidgetClass BarHeadLine1 {
+             ignorepointer 1
+             position 0 0.05
+             size 1 0.1293
+             halign center_ref
+             hexactpos 0
+             vexactpos 0
+             hexactsize 0
+             vexactsize 0
+             text "Event Infos"
+             font "gui/fonts/metron-bolditalic22"
+             "size to text h" 0
+             "size to text v" 0
+             "text halign" center
+             "text valign" center
+            }
+            TextWidgetClass AiAmountLbl0 {
+             ignorepointer 1
+             position -0.3296 0.4054
+             size 0.28486 0.12526
+             halign center_ref
+             hexactpos 0
+             vexactpos 0
+             hexactsize 0
+             vexactsize 0
+             text "Zone Name"
+             font "gui/fonts/metron-italic16"
+             "size to text h" 0
+             "size to text v" 0
+             "text halign" center
+             "text valign" center
+            }
+            EditBoxWidgetClass AiAmountBox0 {
+             color 0.502 0.3765 0 1
+             position 0.3345 0.4054
+             size 0.62697 0.1295
+             hexactpos 0
+             vexactpos 0
+             hexactsize 0
+             vexactsize 0
+             style DefaultBorder
+            }
+            TextWidgetClass AiAmountLbl1 {
+             ignorepointer 1
+             position -0.3296 0.5654
+             size 0.28486 0.12526
+             halign center_ref
+             hexactpos 0
+             vexactpos 0
+             hexactsize 0
+             vexactsize 0
+             text "Loot Tier"
+             font "gui/fonts/metron-italic16"
+             "size to text h" 0
+             "size to text v" 0
+             "text halign" center
+             "text valign" center
+            }
+            EditBoxWidgetClass AiAmountBox1 {
+             color 0.502 0.3765 0 1
+             position 0.3345 0.5654
+             size 0.62697 0.1295
+             hexactpos 0
+             vexactpos 0
+             hexactsize 0
+             vexactsize 0
+             style DefaultBorder
+            }
+            TextWidgetClass AiAmountLbl2 {
+             ignorepointer 1
+             position -0.3296 0.7386
+             size 0.28486 0.12526
+             halign center_ref
+             hexactpos 0
+             vexactpos 0
+             hexactsize 0
+             vexactsize 0
+             text "ObjectList"
+             font "gui/fonts/metron-italic16"
+             "size to text h" 0
+             "size to text v" 0
+             "text halign" center
+             "text valign" center
+            }
+            EditBoxWidgetClass AiAmountBox2 {
+             color 0.502 0.3765 0 1
+             position 0.3345 0.7386
+             size 0.62697 0.1295
+             hexactpos 0
+             vexactpos 0
+             hexactsize 0
+             vexactsize 0
+             style DefaultBorder
+            }
+           }
+          }
+          ButtonWidgetClass BtnForceStartEvent {
+           color 0 0.502 0.1255 1
+           position 0.63672 0.87101
+           size 0.34046 0.10018
+           hexactpos 0
+           vexactpos 0
+           hexactsize 0
+           vexactsize 0
+           style Colorable
+           text "Start Event"
+           font "gui/fonts/metron-bold28"
+          }
+         }
+        }
+       }
+      }
+     }
+    }
+   }
+  }
+ }
+}
