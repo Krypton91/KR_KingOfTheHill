@@ -366,10 +366,12 @@ class KR_KingOfTheHillZone
             if(m_TimeCaptured != 0 && m_Location.ResetCaptureTimeAfterAllPlayersLeavedZone)
                 m_TimeCaptured = 0;
             
-            m_CleanupTick -= EventTick;
+            if(!IsAnyPlayerInZone() && CanStartEvent())
+                m_CleanupTick -= EventTick;
+            
             if(m_CleanupTick <= 0)
             {
-                if(!IsAnyPlayerInZone() && !m_CanStartEvent)
+                if(!IsAnyPlayerInZone())
                 {
                     DeleteAllEventObjects();
                     ServerNotification(ReplaceLocationPlaceHolder(m_config.m_EventDespawnedMessage));
