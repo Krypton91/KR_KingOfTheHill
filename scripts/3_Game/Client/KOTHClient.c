@@ -1,12 +1,14 @@
 class KR_KingOfTheHillClientManager
 {
-    autoptr KR_KingOfTheHillProgressWidget m_ZoneMenu;
-    float m_UpdateCooldown = 0.0;
-    bool m_IsInAZone = false;
+    autoptr KR_KingOfTheHillProgressWidget                      m_ZoneMenu;
+    float                                                       m_UpdateCooldown = 0.0;
+    bool                                                        m_IsInAZone = false;
+    protected bool                                              m_IsAdmin = true;
     #ifdef BASICMAP
-    autoptr array<autoptr KOTHMapMarker> m_MapMarkers;
+    autoptr array<autoptr KOTHMapMarker>                        m_MapMarkers;
     #endif
-    protected autoptr array<autoptr KR_KingOfTheHillLocation> m_ActiveEvents;
+    protected autoptr array<autoptr KR_KingOfTheHillLocation>   m_ActiveEvents;
+    protected autoptr KR_KOTH_ADMIN_UI                          m_AdminMenu;
 
     void KR_KingOfTheHillClientManager()
     {
@@ -82,6 +84,34 @@ class KR_KingOfTheHillClientManager
                 HandleZone(ctx);
             }
         }
+    }
+
+    void HandleAdminMenu()
+    {
+        if(m_IsAdmin)
+        {
+            if(GetGame().GetUIManager().GetMenu() == NULL && m_AdminMenu == null)
+            {
+                m_AdminMenu = KR_KOTH_ADMIN_UI.Cast(GetGame().GetUIManager().EnterScriptedMenu(KR_KOTH_ADMINMENUID, null));
+            }
+            else if(GetGame().GetUIManager().GetMenu() != NULL && m_AdminMenu && m_AdminMenu.IsVisible())
+            {
+                GetGame().GetUIManager().Back();
+            }
+            else
+            {
+                if(GetGame().GetUIManager().GetMenu() == NULL && !m_AdminMenu.IsVisible())
+                {
+                    GetGame().GetUIManager().ShowScriptedMenu(m_AdminMenu, NULL);
+                }
+            }
+        }
+    }
+
+    void CloseAdminMenu()
+    {
+        if(m_IsAdmin && m_AdminMenu && m_AdminMenu.IsVisible())
+            GetGame().GetUIManager().Back();
     }
 
     void HandleZone(ParamsReadContext ctx)
