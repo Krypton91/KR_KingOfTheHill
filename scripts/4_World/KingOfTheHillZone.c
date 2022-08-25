@@ -431,7 +431,7 @@ class KR_KingOfTheHillZone
     PlayerBase FindWinningPlayer()
     {
         PlayerBase winner;
-        float closest = m_Location.Radius;
+        float closest = m_Location.CaptureRadius;
         foreach(PlayerBase player : m_PlayersInside)
         {
             float Distance = vector.Distance(player.GetPosition(), m_Location.Position);
