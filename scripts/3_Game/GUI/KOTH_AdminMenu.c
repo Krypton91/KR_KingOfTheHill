@@ -111,8 +111,6 @@ class KR_KOTH_ADMIN_UI extends UIScriptedMenu
             vector pos = m_Map.ScreenToMap(Vector(x, y, 0));
             m_Map.ClearUserMarks();
             m_Map.AddUserMark(pos, "FORCE HILL POSTION", ARGB(255, 255, 0, 0), "KR_KingOfTheHill/GUI/images/FlagIcon.edds");
-            m_Map.SetScale(0.2);
-            m_Map.SetMapPos(pos);
             OpenPanelHandleEvent(pos);
         }
     }
