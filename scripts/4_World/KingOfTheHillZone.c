@@ -366,10 +366,12 @@ class KR_KingOfTheHillZone
             if(m_TimeCaptured != 0 && m_Location.ResetCaptureTimeAfterAllPlayersLeavedZone)
                 m_TimeCaptured = 0;
             
-            m_CleanupTick -= EventTick;
+            if(!IsAnyPlayerInZone() && CanStartEvent())
+                m_CleanupTick -= EventTick;
+            
             if(m_CleanupTick <= 0)
             {
-                if(!IsAnyPlayerInZone() && !m_CanStartEvent)
+                if(!IsAnyPlayerInZone())
                 {
                     DeleteAllEventObjects();
                     ServerNotification(ReplaceLocationPlaceHolder(m_config.m_EventDespawnedMessage));
@@ -429,7 +431,7 @@ class KR_KingOfTheHillZone
     PlayerBase FindWinningPlayer()
     {
         PlayerBase winner;
-        float closest = m_Location.Radius;
+        float closest = m_Location.CaptureRadius;
         foreach(PlayerBase player : m_PlayersInside)
         {
             float Distance = vector.Distance(player.GetPosition(), m_Location.Position);

@@ -1,0 +1,1 @@
+const static int KR_KOTH_ADMINMENUID = 8673532865;
