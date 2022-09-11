@@ -61,7 +61,8 @@ class KingOfTheHillEventManager
         KR_KingOfTheHillZone serversLoc;
         for(int i = 0; i < m_ActiveEvents.Count(); i++)
         {
-            if(m_ActiveEvents.Get(i).m_Location.Position == clientLoc.Position){
+            if(m_ActiveEvents.Get(i).m_Location.Position == clientLoc.Position)
+            {
                 serversLoc = m_ActiveEvents.Get(i);
                 break;
             }
@@ -80,7 +81,6 @@ class KingOfTheHillEventManager
         {
             bool Result = serversLoc.AddPlayerToSyncList(player);
             GetGame().RPCSingleParam(player, KOTH_RPCs.RPC_SETCLIENTINZONE, new Param1<bool>(Result), true, player.GetIdentity());
-            
         }
     }
 

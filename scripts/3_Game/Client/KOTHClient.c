@@ -81,7 +81,7 @@ class KR_KingOfTheHillClientManager
             }
             case KOTH_RPCs.RPC_SETCLIENTINZONE:
             {
-                HandleZone(ctx);
+                SetClientInZone(ctx);
             }
         }
     }
@@ -114,7 +114,7 @@ class KR_KingOfTheHillClientManager
             GetGame().GetUIManager().Back();
     }
 
-    void HandleZone(ParamsReadContext ctx)
+    void SetClientInZone(ParamsReadContext ctx)
     {
         Param1<bool> data;
         if(!ctx.Read(data)) return;
@@ -208,7 +208,7 @@ class KR_KingOfTheHillClientManager
         if(!player) return;
         if(!player.IsAlive()) return;
         if(!m_ActiveEvents) return;
-        
+
         foreach(KR_KingOfTheHillLocation loc : m_ActiveEvents)
         {
             if(!loc)
