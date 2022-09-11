@@ -22,7 +22,8 @@ modded class MissionGameplay
 
     override void OnKeyRelease(int key)
     {
-          if(key == KeyCode.KC_ESCAPE)
+        super.OnKeyRelease(key);
+       /*   if(key == KeyCode.KC_ESCAPE)
           {
               KR_KingOfTheHillClientManager().GetInstance().CloseAdminMenu();
           }
@@ -32,5 +33,7 @@ modded class MissionGameplay
         {
             KR_KingOfTheHillClientManager().GetInstance().HandleAdminMenu();
         }
+    }
+    */
     }
 };

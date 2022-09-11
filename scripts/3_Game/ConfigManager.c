@@ -273,8 +273,6 @@ class KR_KingOfTheHillConfig
                 }
             }
          }
-
-
         return settings;
     }
 };

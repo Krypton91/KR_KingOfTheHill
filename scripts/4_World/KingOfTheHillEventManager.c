@@ -8,6 +8,7 @@ class KingOfTheHillEventManager
     protected float m_EventUpdateTimer = 1.0;
     protected float m_HillDropTimer = 500.0;
     protected float m_Cooldown;
+    protected bool  m_Inited = false;
     void KingOfTheHillEventManager()
     {
         m_serverconfig = KR_KingOfTheHillConfig.Load();
@@ -16,6 +17,22 @@ class KingOfTheHillEventManager
         m_EventUpdateTimer = m_serverconfig.m_UpdateInterval;
         m_HillDropTimer = m_serverconfig.m_HillEventInterval;
 
+    }
+
+    void Init()
+    {
+        if(!m_serverconfig){
+            m_serverconfig = KR_KingOfTheHillConfig.Load();
+        }
+
+        if(!m_serverconfig) {
+            Error("Can not start King of the Hill! Config Module is not working, or maybe not found!");
+            return;
+        }
+
+        KOTHLoggingService.Log("OnInit Event Manager.");
+        KOTHLoggingService.Log("First Hill Spawning in:  " + m_serverconfig.m_HillEventInterval.ToString() + "seconds.");
+        m_Inited = true;
     }
 
     void OnServerRPCRecived(PlayerBase player, PlayerIdentity sender, int rpc_type, ParamsReadContext ctx)
@@ -61,7 +78,8 @@ class KingOfTheHillEventManager
         KR_KingOfTheHillZone serversLoc;
         for(int i = 0; i < m_ActiveEvents.Count(); i++)
         {
-            if(m_ActiveEvents.Get(i).m_Location.Position == clientLoc.Position){
+            if(m_ActiveEvents.Get(i).m_Location.Position == clientLoc.Position)
+            {
                 serversLoc = m_ActiveEvents.Get(i);
                 break;
             }
@@ -80,12 +98,15 @@ class KingOfTheHillEventManager
         {
             bool Result = serversLoc.AddPlayerToSyncList(player);
             GetGame().RPCSingleParam(player, KOTH_RPCs.RPC_SETCLIENTINZONE, new Param1<bool>(Result), true, player.GetIdentity());
-            
         }
     }
 
     void OnUpdate(float timeslice)
     {   
+        if(!m_Inited)
+            return;
+
+        
         if(m_EventUpdateTimer >= m_serverconfig.m_UpdateInterval)
         {
             m_Cooldown -=  m_serverconfig.m_UpdateInterval;
@@ -136,23 +157,6 @@ class KingOfTheHillEventManager
             m_Cooldown = m_serverconfig.m_EveryEventCooldown;
         
         return true;
-    }
-
-
-    void Init()
-    {
-        if(!m_serverconfig){
-            m_serverconfig = KR_KingOfTheHillConfig.Load();
-        }
-
-        if(!m_serverconfig) {
-            Error("Can not start King of the Hill! Config Module is not working, or maybe not found!");
-            return;
-        }
-
-        KOTHLoggingService.Log("OnInit Event Manager.");
-        KOTHLoggingService.Log("First Hill Spawning in:  " + m_serverconfig.m_HillEventInterval.ToString() + "seconds.");
-        Print("[King of the Hill] -> Event Spawn Time every " +  m_serverconfig.m_HillEventInterval.ToString() + "s.");
     }
 
     void CreateHillEvent()

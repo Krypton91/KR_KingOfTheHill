@@ -5,10 +5,10 @@ modded class MissionServer
         super.OnInit();
         float StartDelay = KR_KingOfTheHillConfig.Load().GetServerStartDelay();
         KOTHLoggingService.Log("Event Manager starts in " + StartDelay + " ms.");
-        GetGame().GetCallQueue(CALL_CATEGORY_SYSTEM).CallLater(this.StartKingOfTheHill, KR_KingOfTheHillConfig.Load().GetServerStartDelay(), false);
+        GetGame().GetCallQueue(CALL_CATEGORY_SYSTEM).CallLater(this.InitKingOfTheHill, StartDelay, false);
     }
 
-    void StartKingOfTheHill()
+    void InitKingOfTheHill()
     {
         KingOfTheHillEventManager.GetInstance().Init();
     }

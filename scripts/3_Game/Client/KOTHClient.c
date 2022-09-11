@@ -81,7 +81,7 @@ class KR_KingOfTheHillClientManager
             }
             case KOTH_RPCs.RPC_SETCLIENTINZONE:
             {
-                HandleZone(ctx);
+                SetClientInZone(ctx);
             }
         }
     }
@@ -114,11 +114,10 @@ class KR_KingOfTheHillClientManager
             GetGame().GetUIManager().Back();
     }
 
-    void HandleZone(ParamsReadContext ctx)
+    void SetClientInZone(ParamsReadContext ctx)
     {
         Param1<bool> data;
         if(!ctx.Read(data)) return;
-        KOTHLoggingService.Log("RPC DEBUG : RPC_REMOVEFROMZONE recived! Is IN Zone: " + data.param1);
         m_IsInAZone = data.param1;
     }
 
@@ -208,6 +207,8 @@ class KR_KingOfTheHillClientManager
         Man player = GetGame().GetPlayer();
         if(!player) return;
         if(!player.IsAlive()) return;
+        if(!m_ActiveEvents) return;
+
         foreach(KR_KingOfTheHillLocation loc : m_ActiveEvents)
         {
             if(!loc)
@@ -224,10 +225,6 @@ class KR_KingOfTheHillClientManager
                 break;
             }
         }
-
-        if(!m_IsInAZone)
-            m_ZoneMenu.HandleShow(m_IsInAZone);
-
     }
 
     void OnUpdate(float timeslice)
@@ -236,6 +233,8 @@ class KR_KingOfTheHillClientManager
         {
             CheckForPossibleZones();
             m_UpdateCooldown = 0;
+            if(m_ZoneMenu)
+                m_ZoneMenu.HandleShow(m_IsInAZone);
         }
         else
         {
