@@ -4,6 +4,7 @@ class KingOfTheHillEventManager
     protected autoptr array<autoptr KR_KingOfTheHillZone> m_ActiveEvents;
     protected autoptr array<autoptr KR_KingOfTheHillLocation> m_ActiveEventLocations;
     protected autoptr KR_KingOfTheHillLocation m_LastLocation;
+    protected autoptr KR_KingOfTheHillPermisionService m_PermissionService;
 
     protected float m_EventUpdateTimer = 1.0;
     protected float m_HillDropTimer = 500.0;
@@ -16,7 +17,13 @@ class KingOfTheHillEventManager
         m_ActiveEventLocations = new array<autoptr KR_KingOfTheHillLocation>;
         m_EventUpdateTimer = m_serverconfig.m_UpdateInterval;
         m_HillDropTimer = m_serverconfig.m_HillEventInterval;
-
+        Print("KingOfTheHillEventManager() ctor called!");
+        m_PermissionService = new KR_KingOfTheHillPermisionService();
+        TStringArray test = m_PermissionService.GetAdmins();
+        foreach(string admin : test)
+        {
+            Print(admin);
+        }
     }
 
     void Init()
